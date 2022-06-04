@@ -1,7 +1,13 @@
 import React from "react";
+import { useContext } from "react";
+import { AmazonContext } from "../context/AmazonContext";
 import { ConnectButton } from "web3uikit";
 import Link from "next/link";
 import Image from "next/image";
+import logo from "../public/assets/File Hosting/amazon_logo.png";
+import FaBox from "react-icons/fa";
+import logofull from "../public/assets/File Hosting/amazon_logo_full.png";
+
 const styles = {
   container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
   profile: ` w-full py-16 flex flex-col justify-center items-center rounded-r-3xl bg-gradient-to-t from-[#0d141c] to-[#42667e] mt-[40px] mb-[50px] border-2 border-[#fb9701]`,
@@ -18,8 +24,18 @@ const styles = {
   setNickname: `text-lg font-bold flex flex-1 items-center mt-[20px] mb-[20px] text-white`,
 };
 const SideBar = () => {
-  const isAuthenticated = false;
+  // const isAuthenticated = true;
+  // const username = "";
+  // const nickname = "";
 
+  const {
+    isAuthenticated,
+    nickname,
+    setNickname,
+    username,
+    handlesetUsername,
+  } = useContext(AmazonContext);
+  const handleSetUsername = () => {};
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
@@ -47,14 +63,14 @@ const SideBar = () => {
                 </div>
                 <button
                   className={styles.setNickname}
-                  onClick={handleSetUsername}
+                  onClick={handlesetUsername}
                 >
                   Set Nickname
                 </button>
               </>
             ) : (
               <div>
-                <div className={styles.welcome}>Wecome {username}</div>
+                <div className={styles.welcome}>Welcome {username}</div>
               </div>
             )}
           </>
@@ -68,35 +84,24 @@ const SideBar = () => {
           <div className={styles.menuItem}>
             <Image
               src={logo}
-              height={30}
-              width={30}
+              height={100}
+              width={100}
               className={styles.amazonLogo}
             />
             My Amazon
-            <br /> Board
+            <br />
+            board
           </div>
         </Link>
-        <div className={styles.menuItem}>
-          <FaBox />
-          Collections
-        </div>
-        <div className={styles.menuItem}>
-          <BsFillBookmarkFill />
-          Saved
-        </div>
-        <div className={styles.menuItem}>
-          <BsFillPersonFill />
-          Profile
-        </div>
-        <Link href="/history">
-          <div className={styles.menuItem}>
-            <AiOutlineHistory />
-            Transaction History
-          </div>
+        <div className={styles.menuItem}>Collections</div>
+        <div className={styles.menuItem}>Saved</div>
+
+        <Link href="history">
+          <div className={styles.menuItem}>Transaction history</div>
         </Link>
       </div>
       <div className={styles.companyName}>
-        <Image src={logoFull} alt="amazon" height={100} width={100} />
+        <Image src={logofull} alt="amazon" height={100} width={100} />
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <SideBar />
-      <div className="font-extrabold">HEHE</div>
     </div>
   );
 }
