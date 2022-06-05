@@ -12,6 +12,8 @@
       "media2.giphy.com",
       "media4.giphy.com",
       "cdn.dribbble.com",
+      "i.pinimg.com",
+      "mir-s3-cdn-cf.behance.net",
     ],
   },
 };
