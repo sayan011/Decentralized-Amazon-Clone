@@ -8,6 +8,7 @@ export const AmazonProvider = ({ children }) => {
   const [username, setUserName] = useState("");
   const [nickname, setNickname] = useState("");
   const [assets, setAssets] = useState([]);
+
   const {
     authenticate,
     isAuthenticated,
